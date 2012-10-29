@@ -9,12 +9,12 @@
     "type": "git",
     "url": ""
   },
-  "keywords": [],
+  "keywords": ["file", "markdown", "directory", "walker"],
   "author": "JP Richardson <jprichardson@gmail.com>",
   "licenses": [
     {
       "type": "MIT",
-      "url": ""
+      "url": "git@github.com:jprichardson/node-markdown-walker.git"
     }
   ],
   "dependencies": {
