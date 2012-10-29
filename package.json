@@ -7,14 +7,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git@github.com:jprichardson/node-markdown-walker.git"
   },
   "keywords": ["file", "markdown", "directory", "walker"],
   "author": "JP Richardson <jprichardson@gmail.com>",
   "licenses": [
     {
       "type": "MIT",
-      "url": "git@github.com:jprichardson/node-markdown-walker.git"
+      "url": ""
     }
   ],
   "dependencies": {
