@@ -12,8 +12,9 @@ describe('markdown-walker', function () {
     if (TEST_DIR)
       fs.removeSync(TEST_DIR)
 
-    TEST_DIR = testutil.createTestDir('test-markdown-walker')
-    var files = [path.join(TEST_DIR, 'hi.md')
+    TEST_DIR = testutil.createTestDir('markdown-walker')
+    var files = [
+        path.join(TEST_DIR, 'hi.md')
       , path.join(TEST_DIR, 'test.markdown')
       , path.join(TEST_DIR, 'test.text')
       , path.join(TEST_DIR, 'somedir', 'test.mkd')
@@ -53,15 +54,26 @@ describe('markdown-walker', function () {
           fs.writeFileSync(path.join(TEST_DIR, 'mod.md'), '')
 
           var walker = mkdw(TEST_DIR, {lastModified: date})
-            , files = [];
+            , mFiles = []     //modified
+            , nmFiles = []    //not modified
+            , files = []      //all
 
-          walker.on('markdown', function(markdown) {
-            files.push(markdown);
+          walker
+          .on('markdown', function(file) {
+            files.push(file);
+          })
+          .on('notModified', function(file) {
+            nmFiles.push(file)
+          })
+          .on('modified', function(file) {
+            mFiles.push(file)
           })
 
           walker.on('end', function() {
-            T (files.length === 1)
-            T (path.basename(files[0]) === 'mod.md')
+            EQ (files.length, 4)
+            EQ (mFiles.length, 1)
+            EQ (nmFiles.length, 3)
+            EQ (path.basename(mFiles[0]), 'mod.md')
             done()
           })
         },1000); //have to at least use 1 sec because file stat times are in chopped to secs.
