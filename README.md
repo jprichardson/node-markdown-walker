@@ -1,6 +1,8 @@
 Node.js - markdown-walker
 ================
 
+[![Build Status](https://secure.travis-ci.org/jprichardson/node-markdown-walker.png)](http://travis-ci.org/jprichardson/node-markdown-walker)
+
 Simple directory walker that specifically looks for markdown files.
 
 
