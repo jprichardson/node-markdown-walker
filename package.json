@@ -27,7 +27,8 @@
   },
   "devDependencies": {
     "fs-extra": "~0.6.0",
-    "testutil": "~0.5.0"
+    "testutil": "~0.5.0",
+    "mocha": "*"
   },
   "main": "./lib/markdown-walker.js",
   "scripts": {
